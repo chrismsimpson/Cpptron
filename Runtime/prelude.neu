@@ -1,0 +1,89 @@
+extern struct String {
+    func number(anon number: Int64) -> String
+
+    func split(this, anon c: CChar) -> [String]
+    func characters(this) -> raw CChar
+    func reverse(this) -> String
+    func toLowercase(this) -> String
+    func toUppercase(this) -> String
+    func toSnakecase(this) -> String
+    func toTitlecase(this) -> String
+    func toInt(this) -> Int32?
+    func toUInt(this) -> UInt32?
+    func isWhitespace(this) -> Bool
+    func hash(this) -> UInt32
+    func substring(this, start: UInt, length: UInt) -> String
+    func repeated(character: CChar, count: UInt) -> String
+    func isEmpty(this) -> Bool
+    func length(this) -> UInt
+}
+
+extern struct Array<T> {
+    func isEmpty(this) -> Bool
+    func size(this) -> UInt
+    func capacity(this) -> UInt
+    func ensureCapacity(this, anon capacity: UInt) throws
+    func addCapacity(this, anon capacity: UInt) throws
+    func resize(var this, anon size: UInt) throws
+    func push(var this, anon value: T) throws
+    func pop(var this) -> T?
+}
+
+extern struct Optional<T> {
+    func hasValue(this) -> Bool
+    func value(this) -> T
+    func valueOr(this, anon x: T) -> T
+    func Optional<S>(anon x: S) -> Optional<S>
+}
+
+extern struct WeakPointer<T> {
+    func hasValue(this) -> Bool
+    func clear(var this)
+}
+
+extern struct Dictionary<K, V> {
+    func get(this, anon key: K) -> V?
+    func contains(this, anon key: K) -> Bool
+    func set(var this, key: K, value: V) throws
+    func remove(var this, anon key: K) -> Bool
+    func ensureCapacity(var this, anon capacity: UInt) throws
+    func clear(var this)
+    func size(this) -> UInt
+    func capacity(this) -> UInt
+    func keys(this) -> [K]
+    func hash(this) -> UInt32
+    func Dictionary<A, B>() -> [A: B]
+}
+
+extern struct Set<V> {
+    func contains(this, anon value: V) -> Bool
+    func add(var this, anon value: V) throws
+    func remove(var this, anon value: V) -> Bool
+    func ensureCapacity(var this, anon capacity: UInt) throws
+    func clear(var this)
+    func size(this) -> UInt
+    func capacity(this) -> UInt
+    func hash(this) -> UInt32
+    func Set<A>() -> Set<A>
+}
+
+extern struct Tuple { }
+
+extern struct Range<T> {
+    func next(var this) -> T?
+}
+
+extern struct Error {
+    func code(this) -> Int32
+    func fromError(anon code: Int32) -> Error
+}
+
+extern class File {
+    public func openForReading(anon path: String) throws -> File
+    public func openForWriting(anon path: String) throws -> File
+
+    public func read(var this, anon buffer: [UInt8]) throws -> UInt
+    public func write(var this, anon data: [UInt8]) throws -> UInt
+
+    public func readAll(var this) throws -> [UInt8]
+}
