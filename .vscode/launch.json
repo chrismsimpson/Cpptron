@@ -7,11 +7,11 @@
             "request": "launch",
             "program": "${workspaceFolder}/Sources/bin/Debug/net6.0/Neu.dll",
             "args": [
-                "build", 
-                "./Build/Apps/foo.cpp"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
+            // "console": "internalConsole",
+            // "internalConsoleOptions": "openOnFirstSessionStart", // "neverOpen",
             "internalConsoleOptions": "neverOpen",
             "stopAtEntry": false,
             "logging": {

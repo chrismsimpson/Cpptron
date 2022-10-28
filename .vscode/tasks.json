@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "foo",
+            "label": "dotnet build",
             "command": "dotnet build Neu.sln",
             "type": "shell",
             "args": [
@@ -14,7 +14,8 @@
             },
             "presentation": {
                 "echo": true,
-                "reveal": "always",
+                // "reveal": "always",
+                "reveal": "silent", 
                 "focus": false,
                 "panel": "shared",
                 "showReuseMessage": false,
