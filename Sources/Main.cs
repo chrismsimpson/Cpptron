@@ -5,37 +5,25 @@ public static partial class Program {
 
     public static int Main(String[] args) {
 
-        // WriteLine($"args: {args.Length}");
-
-        // for (var i = 0; i < args.Length; i++) {
-
-        //     WriteLine($"  {i}: {args[i]}");
-        // }
-
-        // WriteLine($"foo");
-
-        // Foo();
-
-        
-
         switch (true) {
 
-            case var _ when
-                args.Contains("-h") || args.Contains("--help"): {
-
-                WriteLine(HELP);
-
-                return 0;
-            }
-
             case var _ when 
-                args.Length >= 2
+                args.Length > 1
                 && args[0] == "build"
                 && File.Exists(args[1]): {
 
                 Build(
                     path: args[1], 
                     verbose: !args.Contains("--silent"));
+
+                return 0;
+            }
+
+            case var _ when
+                args.Length > 0
+                && args[0] == "clean": {
+
+                WriteLine(CLEAN_MESSAGE);
 
                 return 0;
             }
@@ -47,6 +35,17 @@ public static partial class Program {
                 throw new Exception();
             }
 
+            ///
+
+            case var _ when 
+                args.Length > 0
+                && args[0] == "build": {
+
+                Error.WriteLine(BUILD_USAGE);
+
+                return 1;
+            }
+
             default: {
 
                 Error.WriteLine(USAGE);
@@ -56,19 +55,35 @@ public static partial class Program {
         }
     }
 
-    public static readonly String USAGE = "usage: neu [-h] [OPTIONS] [FILES...]";
+    public static readonly String USAGE = 
+@"usage: neu [subtask] [-h]
 
-    public static readonly String HELP = 
-@"Flags:
-  -h,--help              Print this help and exit
+Subtasks:
+  build                     Build specified file
+  clean                     Clean build directory
+  transpile (default)       Transpile specified file to C++
 
 Options:
-  -o,--binary-dir PATH   Output directory for compiled files.
-                         Defaults to $PWD/build.
+  -h                        Subtask specific help
+";
+
+    public static readonly String BUILD_USAGE = 
+@"usage: neu build [-h] [OPTIONS] [FILES...]
+
+Flags:
+  -h, --help                Print this help and exit
+  
+Options:
+  -o,--binary-dir PATH      Output directory for compiled FILES
+                            Defaults to $PWD/Build
 
 Arguments:
-  FILES...               List of files to compile. The outputs are
-                         `<input-filename>.cpp` in the binary directory.
+  FILES...                  List of files to compile. The outputs
+                            `<inputFilename>.cpp` in the binary directory.
+";
+
+    public static readonly String CLEAN_MESSAGE = 
+@"Clean successful
 ";
 
     public static void Build(

@@ -1,0 +1,10 @@
+func main() {
+    recurse(count: 10)
+}
+
+func recurse(count: Int64) {
+    printLine("{}", count)
+    if count > 0 {
+        recurse(count: count - 1)
+    }
+}

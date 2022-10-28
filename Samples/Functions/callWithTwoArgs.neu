@@ -1,0 +1,8 @@
+func greet(msg: String, msg2: String) {
+    printLine("{}", msg)
+    printLine("{}", msg2)
+}
+
+func main() {
+    greet(msg: "hello", msg2: "foo")
+}

@@ -1,0 +1,8 @@
+func main() {
+    let x = 10
+    let y = &raw x
+
+    unsafe {
+        printLine("{}", *y)
+    }
+}

@@ -1,0 +1,15 @@
+class Person {
+    public name: String
+    public age: Int64
+
+    public func generate(name: String, age: Int64) throws -> Person {
+        return Person(name: name, age: age + 1000);
+    }
+}
+
+func main() {
+    let p = Person.generate(name: "Jane", age: 100)
+
+    printLine("{}", p.name)
+    printLine("{}", p.age)
+}

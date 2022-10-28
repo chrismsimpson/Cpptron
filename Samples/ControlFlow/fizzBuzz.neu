@@ -1,0 +1,18 @@
+func main() {
+    var i = 1
+    while i <= 20 {
+        if i % 15 == 0 {
+            printLine("FizzBuzz")
+        } 
+        else if i % 3 == 0 {
+            printLine("Fizz")
+        } 
+        else if i % 5 == 0 {
+            printLine("Buzz")
+        } 
+        else {
+            printLine("{}", i)
+        }
+        ++i
+    }
+}

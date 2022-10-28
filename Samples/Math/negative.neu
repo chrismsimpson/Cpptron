@@ -1,0 +1,3 @@
+func main() {
+    printLine("{}", -10 + 7)
+}

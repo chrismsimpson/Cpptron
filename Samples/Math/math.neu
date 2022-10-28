@@ -1,0 +1,7 @@
+func subtract(x: Int64, y: Int64) {
+    printLine("{}", x - y)
+}
+
+func main() {
+    subtract(x: 10, y: 3)
+}

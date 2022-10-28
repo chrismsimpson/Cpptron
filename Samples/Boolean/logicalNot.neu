@@ -1,0 +1,10 @@
+func main() {
+    if not (1 < 2) {
+        printLine("whoops")
+    }
+
+    let sadness = false
+    if not sadness {
+        printLine("happiness")
+    }
+}

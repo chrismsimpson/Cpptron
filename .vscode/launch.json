@@ -10,8 +10,28 @@
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
-            // "console": "internalConsole",
-            // "internalConsoleOptions": "openOnFirstSessionStart", // "neverOpen",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false,
+            "logging": {
+                "moduleLoad": false,
+                "engineLogging": false,
+                "elapsedTiming": false,
+                "exceptions": true,
+                "processExit": true,
+                "programOutput": true,
+                "threadExit": false
+            },
+            "requireExactSource": true
+        },
+        {
+            "name": "neu tests",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/Tests/bin/Debug/net6.0/NeuTests.dll",
+            "args": [
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",
             "stopAtEntry": false,
             "logging": {
