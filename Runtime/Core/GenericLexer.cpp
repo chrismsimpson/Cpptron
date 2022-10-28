@@ -4,13 +4,13 @@
  * SPDX-License-Identifier: BSD-2-Clause
  */
 
-#include "Assertions.h"
-#include "CharacterTypes.h"
-#include "GenericLexer.h"
-#include "StringBuilder.h"
+#include <Core/Assertions.h>
+#include <Core/CharacterTypes.h>
+#include <Core/GenericLexer.h>
+#include <Core/StringBuilder.h>
 
 #ifndef KERNEL
-#    include "String.h"
+#    include <Core/String.h>
 #endif
 
 ///

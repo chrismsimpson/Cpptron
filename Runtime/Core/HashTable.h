@@ -6,14 +6,14 @@
 
 #pragma once
 
-#include "Concepts.h"
-#include "Error.h"
-#include "Forward.h"
-#include "HashFunctions.h"
-#include "std.h"
-#include "Traits.h"
-#include "Types.h"
-#include "kmalloc.h"
+#include <Core/Concepts.h>
+#include <Core/Error.h>
+#include <Core/Forward.h>
+#include <Core/HashFunctions.h>
+#include <Core/std.h>
+#include <Core/Traits.h>
+#include <Core/Types.h>
+#include <Core/kmalloc.h>
 
 enum class HashSetResult {
 

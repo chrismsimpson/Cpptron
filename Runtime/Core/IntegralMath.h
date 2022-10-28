@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "BuiltinWrappers.h"
-#include "Concepts.h"
-#include "Types.h"
+#include <Core/BuiltinWrappers.h>
+#include <Core/Concepts.h>
+#include <Core/Types.h>
 
 template<Integral T>
 constexpr T exp2(T exponent) {

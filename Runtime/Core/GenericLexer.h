@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "Result.h"
-#include "StringView.h"
+#include <Core/Result.h>
+#include <Core/StringView.h>
 
 class GenericLexer {
 

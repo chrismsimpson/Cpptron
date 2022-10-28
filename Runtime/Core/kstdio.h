@@ -11,7 +11,7 @@
 #    ifdef KERNEL
 #        include <Kernel/kstdio.h>
 #    else
-#        include <AK/Types.h>
+#        include <Core/Types.h>
 #        include <stdarg.h>
 
 extern "C" {

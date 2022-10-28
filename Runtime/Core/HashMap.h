@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "HashTable.h"
-#include "Optional.h"
-#include "Vector.h"
+#include <Core/HashTable.h>
+#include <Core/Optional.h>
+#include <Core/Vector.h>
 
 #include <initializer_list>
 
