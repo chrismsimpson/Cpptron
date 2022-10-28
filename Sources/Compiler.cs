@@ -39,7 +39,7 @@ public partial class Compiler {
         this.RawFiles = new List<(String, byte[])>();
     }
 
-    public void IncludePrelude(
+    public Error? IncludePrelude(
         Project project) {
 
         // First, let's make types for all the builtin types
@@ -52,15 +52,87 @@ public partial class Compiler {
 
         var prelude = Compiler.Prelude();
 
+        // Not sure where to put prelude, but we're hoping its parsing is infallible
 
+        this.RawFiles.Add(("<prelude>", prelude));
 
-        
+        // Compile the prelude
 
+        var (lexed, _) = LexerFunctions.Lex(
+            this.RawFiles.Count - 1, 
+            this.RawFiles[this.RawFiles.Count - 1].Item2);
+
+        var index = 0;
+
+        var (file, _) = ParserFunctions.ParseNamespace(lexed, ref index);
+
+        // Scope ID 0 is the global project-level scope that all files can see
+
+        return TypeCheckerFunctions.TypeCheckNamespace(file, 0, project);
     }
-
-    public void ConvertToCPP(
+    
+    public ErrorOr<String> ConvertToCPP(
         String filename) {
 
+        var project = new Project();
+
+        var err = this.IncludePrelude(project);
+
+        if (err is Error preludeErr) {
+
+            return new ErrorOr<String>(preludeErr);
+        }
+
+        Trace($"-----------------------------");
+
+        var contents = File.ReadAllBytes(filename);
+        
+        this.RawFiles.Add((filename, contents));
+
+        var (lexed, lexErr) = LexerFunctions.Lex(
+            this.RawFiles.Count - 1, 
+            this.RawFiles[this.RawFiles.Count - 1].Item2);
+
+        if (lexErr is Error le) {
+
+            return new ErrorOr<String>(le);
+        }
+
+        var index = 0;
+        
+        var (parsedFile, parseErr) = ParserFunctions.ParseNamespace(lexed, ref index);
+
+        if (parseErr is Error pe) {
+
+            return new ErrorOr<String>(pe);
+        }
+
+        ///
+
+        var scope = new Scope(0);
+
+        project.Scopes.Add(scope);
+
+        var fileScopeId = project.Scopes.Count - 1;
+
+        var _nsErr = TypeCheckerFunctions.TypeCheckNamespace(parsedFile, fileScopeId, project);
+
+        if (_nsErr is Error nsErr) {
+
+            return new ErrorOr<String>(nsErr);
+        }
+
+        if (CheckCodeGenPreconditions(project) is Error preCondErr) {
+
+            return new ErrorOr<String>(preCondErr);
+        }
+
+        // Hardwire to first file for now
+
+        return new ErrorOr<String>(
+            CodeGenFunctions.CodeGen(
+                project, 
+                project.Scopes[fileScopeId]));
     }
 
     public byte[] GetFileContents(

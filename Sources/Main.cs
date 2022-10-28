@@ -20,6 +20,14 @@ public static partial class Program {
 
         switch (true) {
 
+            case var _ when
+                args.Contains("-h") || args.Contains("--help"): {
+
+                WriteLine(HELP);
+
+                return 0;
+            }
+
             case var _ when 
                 args.Length >= 2
                 && args[0] == "build"
@@ -41,12 +49,27 @@ public static partial class Program {
 
             default: {
 
-                Error.WriteLine($"usage foo");
+                Error.WriteLine(USAGE);
 
                 return 1;
             }
         }
     }
+
+    public static readonly String USAGE = "usage: neu [-h] [OPTIONS] [FILES...]";
+
+    public static readonly String HELP = 
+@"Flags:
+  -h,--help              Print this help and exit
+
+Options:
+  -o,--binary-dir PATH   Output directory for compiled files.
+                         Defaults to $PWD/build.
+
+Arguments:
+  FILES...               List of files to compile. The outputs are
+                         `<input-filename>.cpp` in the binary directory.
+";
 
     public static void Build(
         String path,
