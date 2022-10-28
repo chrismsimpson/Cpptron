@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "Concepts.h"
-#include "Traits.h"
-#include "Types.h"
+#include <Core/Concepts.h>
+#include <Core/Traits.h>
+#include <Core/Types.h>
 
 template<typename TEndIterator, IteratorPairWith<TEndIterator> TIterator, typename TUnaryPredicate>
 constexpr TIterator findIf(TIterator first, TEndIterator last, TUnaryPredicate&& pred) {

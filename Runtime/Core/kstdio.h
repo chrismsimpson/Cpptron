@@ -8,7 +8,7 @@
 
 #ifdef __os__
 
-#    ifdef OS
+#    ifdef KERNEL
 #        include <Kernel/kstdio.h>
 #    else
 #        include <AK/Types.h>

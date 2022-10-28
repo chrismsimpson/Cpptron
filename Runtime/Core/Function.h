@@ -26,13 +26,13 @@
 
 #pragma once
 
-#include "Assertions.h"
-#include "Atomic.h"
-#include "BitCast.h"
-#include "NonCopyable.h"
-#include "ScopeGuard.h"
-#include "std.h"
-#include "Types.h"
+#include <Core/Assertions.h>
+#include <Core/Atomic.h>
+#include <Core/BitCast.h>
+#include <Core/NonCopyable.h>
+#include <Core/ScopeGuard.h>
+#include <Core/std.h>
+#include <Core/Types.h>
 
 template<typename>
 class Function;

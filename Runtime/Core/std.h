@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "Detail.h"
+#include <Core/Detail.h>
 
-#include "Assertions.h"
+#include <Core/Assertions.h>
 
 template<typename T, typename U>
 constexpr auto roundUpToPowerOfTwo(T value, U powerOfTwo) requires(IsIntegral<T>&& IsIntegral<U>) {

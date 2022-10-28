@@ -7,10 +7,10 @@
 
 #pragma once
 
-#include "Assertions.h"
-#include "std.h"
-#include "Types.h"
-#include "kmalloc.h"
+#include <Core/Assertions.h>
+#include <Core/std.h>
+#include <Core/Types.h>
+#include <Core/kmalloc.h>
 
 // NOTE: If you're here because of an internal compiler error in GCC 10.3.0+,
 //       it's because of the following bug:

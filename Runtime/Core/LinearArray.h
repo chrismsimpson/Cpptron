@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "Iterator.h"
-#include "Span.h"
+#include <Core/Iterator.h>
+#include <Core/Span.h>
 
 template<typename T, size_t Size>
 struct LinearArray {

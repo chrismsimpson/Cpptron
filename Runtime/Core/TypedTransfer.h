@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "Traits.h"
+#include <Core/Traits.h>
 
 template<typename T>
 class TypedTransfer {

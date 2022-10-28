@@ -92,7 +92,7 @@
 #    define ASAN_UNPOISON_MEMORY_REGION(addr, size)
 #endif
 
-#if !defined(__serenity__) && !defined(_WIN32)
+#if !defined(__os__) && !defined(_WIN32)
 // On macOS (at least Mojave), Apple's version of this header is not wrapped
 // in extern "C".
 #    ifdef OS_MACOS

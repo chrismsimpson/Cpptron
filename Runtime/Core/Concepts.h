@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "Forward.h"
-#include "IterationDecision.h"
-#include "std.h"
+#include <Core/Forward.h>
+#include <Core/IterationDecision.h>
+#include <Core/std.h>
 
 namespace Concepts {
 

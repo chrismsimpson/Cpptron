@@ -4,18 +4,18 @@
  * SPDX-License-Identifier: BSD-2-Clause
  */
 
-#include "AnyOf.h"
-#include "ByteBuffer.h"
-#include "Find.h"
-#include "Function.h"
-#include "StringView.h"
-#include "Vector.h"
+#include <Core/AnyOf.h>
+#include <Core/ByteBuffer.h>
+#include <Core/Find.h>
+#include <Core/Function.h>
+#include <Core/StringView.h>
+#include <Core/Vector.h>
 
-#ifndef OS
-#    include "String.h"
+#ifndef KERNEL
+#    include <Core/String.h>
 #endif
 
-#ifndef OS
+#ifndef KERNEL
 
 StringView::StringView(String const& string)
     : m_characters(string.characters()), 
@@ -178,7 +178,7 @@ bool StringView::equalsIgnoringCase(StringView other) const {
     return StringUtils::equalsIgnoringCase(*this, other);
 }
 
-#ifndef OS
+#ifndef KERNEL
 
 String StringView::toLowercaseString() const {
 
@@ -274,7 +274,7 @@ template Optional<long> StringView::toUInt() const;
 
 template Optional<long long> StringView::toUInt() const;
 
-#ifndef OS
+#ifndef KERNEL
 
 bool StringView::operator==(String const& string) const {
 

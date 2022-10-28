@@ -4,14 +4,14 @@
  * SPDX-License-Identifier: BSD-2-Clause
  */
 
-#include "ByteBuffer.h"
-#include "Format.h"
-#include "Function.h"
-#include "Memory.h"
-#include "std.h"
-#include "String.h"
-#include "StringView.h"
-#include "Vector.h"
+#include <Core/ByteBuffer.h>
+#include <Core/Format.h>
+#include <Core/Function.h>
+#include <Core/Memory.h>
+#include <Core/std.h>
+#include <Core/String.h>
+#include <Core/StringView.h>
+#include <Core/Vector.h>
 
 bool String::operator==(String const& other) const {
 

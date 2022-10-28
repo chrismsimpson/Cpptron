@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "Forward.h"
+#include <Core/Forward.h>
 
 template<typename Container, typename ValueType>
 class SimpleReverseIterator {

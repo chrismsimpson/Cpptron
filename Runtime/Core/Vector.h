@@ -309,7 +309,7 @@ public:
         return false;
     }
 
-#ifndef OS
+#ifndef KERNEL
 
     template<typename U = T>
     void insert(size_t index, U&& value) requires(CanBePlacedInsideVector<U>) {
@@ -352,7 +352,7 @@ public:
         MUST(tryAppend(T(value)));
     }
 
-#ifndef OS
+#ifndef KERNEL
 
     void append(StorageType const* values, size_t count) {
         
@@ -392,7 +392,7 @@ public:
         m_size += count;
     }
 
-#ifndef OS
+#ifndef KERNEL
 
     template<class... Args>
     void empend(Args&&... args) requires(!containsReference) {

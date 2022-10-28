@@ -107,7 +107,7 @@ public:
         return true;
     }
 
-#ifndef OS
+#ifndef KERNEL
 
     bool consumeSpecific(String const& next) {
 

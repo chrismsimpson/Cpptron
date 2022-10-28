@@ -6,11 +6,11 @@
 
 #pragma once
 
-#include "Assertions.h"
-#include "Checked.h"
-#include "Optional.h"
-#include "Platform.h"
-#include "std.h"
+#include <Core/Assertions.h>
+#include <Core/Checked.h>
+#include <Core/Optional.h>
+#include <Core/Platform.h>
+#include <Core/std.h>
 
 template<typename OutputType, typename InputType>
 ALWAYS_INLINE bool is(InputType& input) {

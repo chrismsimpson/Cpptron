@@ -6,14 +6,14 @@
 
 #pragma once
 
-#include "ByteBuffer.h"
-#include "Format.h"
-#include "Forward.h"
-#include "RefPointer.h"
-#include "StringBuilder.h"
-#include "StringImpl.h"
-#include "StringUtils.h"
-#include "Traits.h"
+#include <Core/ByteBuffer.h>
+#include <Core/Format.h>
+#include <Core/Forward.h>
+#include <Core/RefPointer.h>
+#include <Core/StringBuilder.h>
+#include <Core/StringImpl.h>
+#include <Core/StringUtils.h>
+#include <Core/Traits.h>
 
 // String is a convenience wrapper around StringImpl, suitable for passing
 // around as a value type. It's basically the same as passing around a

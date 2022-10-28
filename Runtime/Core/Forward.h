@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "Types.h"
+#include <Core/Types.h>
 
 namespace Detail {
 
@@ -79,7 +79,7 @@ class NonNullOwnPointer;
 template<typename T>
 class Optional;
 
-#ifdef OS
+#ifdef KERNEL
 
 template<typename T>
 struct RefPointerTraits;

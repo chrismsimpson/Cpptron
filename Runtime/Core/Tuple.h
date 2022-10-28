@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "std.h"
-#include "TypeList.h"
+#include <Core/std.h>
+#include <Core/TypeList.h>
 
 namespace Detail {
 

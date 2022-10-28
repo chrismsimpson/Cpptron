@@ -50,10 +50,46 @@ public partial class Compiler {
             project.Types.Add(new Builtin());
         }
 
+        var prelude = Compiler.Prelude();
 
-        
+
+
         
 
     }
 
+    public void ConvertToCPP(
+        String filename) {
+
+    }
+
+    public byte[] GetFileContents(
+        Int32 fileId) {
+
+        return this.RawFiles[fileId].Item2;
+    }
+
+    public static byte[] Prelude() {
+
+        return File.ReadAllBytes("./Runtime/prelude.neu");
+    }
+
+    public static Error? CheckCodeGenPreconditions(
+        Project project) {
+
+        // Make sure all functions have a known return type
+
+        foreach (var func in project.Functions) {
+
+            if (func.ReturnTypeId == Compiler.UnknownTypeId) {
+
+                return new TypeCheckError(
+                    $"Could not infer the return type of function '{func.Name}', please explicitly specify it",
+                    (func.Function
+                        ?? throw new Exception("Typechecking non-parsed function")).NameSpan);
+            }
+        }
+
+        return null;
+    }
 }

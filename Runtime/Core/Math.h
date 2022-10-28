@@ -6,13 +6,12 @@
 
 #pragma once
 
-#include "BuiltinWrappers.h"
-#include "Concepts.h"
-#include "Detail.h"
-#include "Types.h"
+#include <Core/BuiltinWrappers.h>
+#include <Core/Concepts.h>
+#include <Core/Detail.h>
+#include <Core/Types.h>
 
-
-#ifdef OS
+#ifdef KERNEL
 
 #    error "Including Math.h from the OS is never correct! Floating point is disabled."
 

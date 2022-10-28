@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include "Concepts.h"
-#include "Forward.h"
+#include <Core/Concepts.h>
+#include <Core/Forward.h>
 
 namespace Detail {
 

@@ -6,14 +6,14 @@
 
 #pragma once
 
-#include "Assertions.h"
-#include "Checked.h"
-#include "Forward.h"
-#include "Optional.h"
-#include "Span.h"
-#include "std.h"
-#include "StringHash.h"
-#include "StringUtils.h"
+#include <Core/Assertions.h>
+#include <Core/Checked.h>
+#include <Core/Forward.h>
+#include <Core/Optional.h>
+#include <Core/Span.h>
+#include <Core/std.h>
+#include <Core/StringHash.h>
+#include <Core/StringUtils.h>
 
 class StringView {
 
@@ -52,7 +52,7 @@ public:
 
     StringView(ByteBuffer const&);
 
-#ifndef OS
+#ifndef KERNEL
 
     StringView(String const&);
 
@@ -60,7 +60,7 @@ public:
 
     explicit StringView(ByteBuffer&&) = delete;
 
-#ifndef OS
+#ifndef KERNEL
 
     explicit StringView(String&&) = delete;
 
@@ -120,7 +120,7 @@ public:
     
     [[nodiscard]] StringView trimWhitespace(TrimMode mode = TrimMode::Both) const { return StringUtils::trimWhitespace(*this, mode); }
 
-#ifndef OS
+#ifndef KERNEL
     
     [[nodiscard]] String toLowercaseString() const;
 
@@ -291,7 +291,7 @@ public:
         return !(*this == cstring);
     }
 
-#ifndef OS
+#ifndef KERNEL
 
     bool operator==(String const&) const;
 
@@ -349,7 +349,7 @@ public:
 
     constexpr bool operator>=(StringView other) const { return compare(other) >= 0; }
 
-#ifndef OS
+#ifndef KERNEL
 
     [[nodiscard]] String toString() const;
 
@@ -360,7 +360,7 @@ public:
         return StringUtils::isWhitespace(*this);
     }
 
-#ifndef OS
+#ifndef KERNEL
 
     [[nodiscard]] String replace(StringView needle, StringView replacement, bool allOccurrences = false) const;
 

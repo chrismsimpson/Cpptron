@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "HashTable.h"
+#include <Core/HashTable.h>
 #include <initializer_list>
 
 template<typename T, typename TraitsForT, bool IsOrdered>

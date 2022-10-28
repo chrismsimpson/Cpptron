@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "Assertions.h"
-#include "Optional.h"
+#include <Core/Assertions.h>
+#include <Core/Optional.h>
 
 template<typename ValueT, typename ErrorT>
 class [[nodiscard]] Result {

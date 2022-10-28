@@ -4,13 +4,13 @@
  * SPDX-License-Identifier: BSD-2-Clause
  */
 
-#include "CharacterTypes.h"
-#include "HashTable.h"
-#include "Memory.h"
-#include "std.h"
-#include "StringHash.h"
-#include "StringImpl.h"
-#include "kmalloc.h"
+#include <Core/CharacterTypes.h>
+#include <Core/HashTable.h>
+#include <Core/Memory.h>
+#include <Core/std.h>
+#include <Core/StringHash.h>
+#include <Core/StringImpl.h>
+#include <Core/kmalloc.h>
 
 static StringImpl* s_theEmptyStringImpl = nullptr;
 

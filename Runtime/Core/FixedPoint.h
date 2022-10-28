@@ -6,13 +6,13 @@
 
 #pragma once
 
-#include "Concepts.h"
-#include "Format.h"
-#include "IntegralMath.h"
-#include "NumericLimits.h"
-#include "Types.h"
+#include <Core/Concepts.h>
+#include <Core/Format.h>
+#include <Core/IntegralMath.h>
+#include <Core/NumericLimits.h>
+#include <Core/Types.h>
 
-#ifndef OS
+#ifndef KERNEL
 
 #    include "Math.h"
 
@@ -47,7 +47,7 @@ public:
     explicit constexpr FixedPoint(FixedPoint<P, U> const& other)
         : m_value(other.template castTo<precision, Underlying>().m_value) { }
 
-#ifndef OS
+#ifndef KERNEL
 
     template<FloatingPoint F>
     explicit ALWAYS_INLINE operator F() const {

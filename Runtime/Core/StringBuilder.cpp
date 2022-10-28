@@ -4,12 +4,12 @@
  * SPDX-License-Identifier: BSD-2-Clause
  */
 
-#include "ByteBuffer.h"
-#include "Checked.h"
-#include "std.h"
-#include "StringBuilder.h"
-#include "StringView.h"
-#include "UnicodeUtils.h"
+#include <Core/ByteBuffer.h>
+#include <Core/Checked.h>
+#include <Core/std.h>
+#include <Core/StringBuilder.h>
+#include <Core/StringView.h>
+#include <Core/UnicodeUtils.h>
 
 inline ErrorOr<void> StringBuilder::willAppend(size_t size) {
 

@@ -6,11 +6,11 @@
 
 #pragma once
 
-#include "LinearArray.h"
-#include "Assertions.h"
-#include "Span.h"
-#include "Types.h"
-#include "Vector.h"
+#include <Core/LinearArray.h>
+#include <Core/Assertions.h>
+#include <Core/Span.h>
+#include <Core/Types.h>
+#include <Core/Vector.h>
 
 namespace {
 

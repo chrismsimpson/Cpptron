@@ -6,7 +6,7 @@
 
 #pragma once
 
-#ifdef OS
+#ifdef KERNEL
 
 #else
 #    include <Core/Assertions.h>

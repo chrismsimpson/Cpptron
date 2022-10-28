@@ -6,18 +6,18 @@
 
 #pragma once
 
-#include "CheckedFormatString.h"
+#include <Core/CheckedFormatString.h>
 
-#include "AllOf.h"
-#include "AnyOf.h"
-#include "LinearArray.h"
-#include "Error.h"
-#include "FixedPoint.h"
-#include "Forward.h"
-#include "Optional.h"
-#include "StringView.h"
+#include <Core/AllOf.h>
+#include <Core/AnyOf.h>
+#include <Core/LinearArray.h>
+#include <Core/Error.h>
+#include <Core/FixedPoint.h>
+#include <Core/Forward.h>
+#include <Core/Optional.h>
+#include <Core/StringView.h>
 
-#ifndef OS
+#ifndef KERNEL
 #    include <stdio.h>
 #    include <string.h>
 #endif
@@ -261,7 +261,7 @@ public:
         char fill = ' ',
         SignMode signMode = SignMode::OnlyIfNeeded);
 
-#ifndef OS
+#ifndef KERNEL
 
     ErrorOr<void> putF80(
         long double value,
@@ -606,7 +606,7 @@ struct Formatter<bool> : StandardFormatter {
     ErrorOr<void> format(FormatBuilder&, bool);
 };
 
-#ifndef OS
+#ifndef KERNEL
 
 template<>
 struct Formatter<float> : StandardFormatter {
@@ -706,7 +706,7 @@ struct Formatter<std::nullptr_t> : Formatter<FlatPointer> {
 
 ErrorOr<void> vformat(StringBuilder&, StringView fmtstr, TypeErasedFormatParams&);
 
-#ifndef OS
+#ifndef KERNEL
 
 void vout(FILE*, StringView fmtstr, TypeErasedFormatParams&, bool newline = false);
 
@@ -770,7 +770,7 @@ inline void debugLine() { debugLine(""); }
 
 void setDebugEnabled(bool);
 
-#ifdef OS
+#ifdef KERNEL
 
 void vDebugMessageLine(StringView fmtstr, TypeErasedFormatParams&);
 

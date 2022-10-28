@@ -6,10 +6,10 @@
 
 #pragma once
 
-#include "ByteBuffer.h"
-#include "Format.h"
-#include "Forward.h"
-#include "StringView.h"
+#include <Core/ByteBuffer.h>
+#include <Core/Format.h>
+#include <Core/Forward.h>
+#include <Core/StringView.h>
 
 #include <stdarg.h>
 
@@ -61,7 +61,7 @@ public:
         MUST(vformat(*this, fmtstr.view(), variadicFormatParams));
     }
 
-#ifndef OS
+#ifndef KERNEL
 
     [[nodiscard]] String build() const;
 

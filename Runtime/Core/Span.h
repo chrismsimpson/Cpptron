@@ -6,11 +6,11 @@
 
 #pragma once
 
-#include "LinearArray.h"
-#include "Assertions.h"
-#include "Iterator.h"
-#include "TypedTransfer.h"
-#include "Types.h"
+#include <Core/LinearArray.h>
+#include <Core/Assertions.h>
+#include <Core/Iterator.h>
+#include <Core/TypedTransfer.h>
+#include <Core/Types.h>
 
 ///
 

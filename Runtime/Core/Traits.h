@@ -8,11 +8,11 @@
 
 #include <string.h>
 
-#include "BitCast.h"
-#include "Concepts.h"
-#include "Forward.h"
-#include "HashFunctions.h"
-#include "StringHash.h"
+#include <Core/BitCast.h>
+#include <Core/Concepts.h>
+#include <Core/Forward.h>
+#include <Core/HashFunctions.h>
+#include <Core/StringHash.h>
 
 template<typename T>
 struct GenericTraits {

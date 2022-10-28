@@ -27,10 +27,10 @@
 
 #pragma once
 
-#include "Assertions.h"
-#include "Concepts.h"
-#include "NumericLimits.h"
-#include "std.h"
+#include <Core/Assertions.h>
+#include <Core/Concepts.h>
+#include <Core/NumericLimits.h>
+#include <Core/std.h>
 
 template<typename Destination, typename Source, bool destinationIsWider = (sizeof(Destination) >= sizeof(Source)), bool destinationIsSigned = NumericLimits<Destination>::isSigned(), bool sourceIsSigned = NumericLimits<Source>::isSigned()>
 struct TypeBoundsChecker;

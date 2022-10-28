@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "Traits.h"
+#include <Core/Traits.h>
 
 constexpr UInt32 stringHash(char const* characters, size_t length, UInt32 seed = 0) {
 

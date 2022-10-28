@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "Checked.h"
+#include <Core/Checked.h>
 
 #if defined(KERNEL)
 #    include <Kernel/Heap/kmalloc.h>
@@ -26,8 +26,8 @@ inline void kfreeSized(void* ptr, size_t) {
 
 #endif
 
-#ifndef __serenity__
-#    include "Types.h"
+#ifndef __os__
+#    include <Core/Types.h>
 
 #    ifndef OS_MACOS
 extern "C" {

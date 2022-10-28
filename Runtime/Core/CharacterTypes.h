@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include "LinearArray.h"
-#include "Types.h"
+#include <Core/LinearArray.h>
+#include <Core/Types.h>
 
 // NOTE: For a quick reference for most of this, see https://www.cplusplus.com/reference/cctype/ and https://infra.spec.whatwg.org/#code-points.
 // NOTE: To avoid ambiguity when including this header, all methods contains names should contain "ascii" or "unicode".

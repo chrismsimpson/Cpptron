@@ -5,17 +5,17 @@
  * SPDX-License-Identifier: BSD-2-Clause
  */
 
-#include "CharacterTypes.h"
-#include "MemMem.h"
-#include "Memory.h"
-#include "Optional.h"
-#include "StringBuilder.h"
-#include "StringUtils.h"
-#include "StringView.h"
-#include "Vector.h"
+#include <Core/CharacterTypes.h>
+#include <Core/MemMem.h>
+#include <Core/Memory.h>
+#include <Core/Optional.h>
+#include <Core/StringBuilder.h>
+#include <Core/StringUtils.h>
+#include <Core/StringView.h>
+#include <Core/Vector.h>
 
-#ifndef OS
-#    include "String.h"
+#ifndef KERNEL
+#    include <Core/String.h>
 #endif
 
 namespace StringUtils {
@@ -662,7 +662,7 @@ namespace StringUtils {
         return { };
     }
 
-    #ifndef OS
+    #ifndef KERNEL
 
     String toSnakecase(StringView str) {
 

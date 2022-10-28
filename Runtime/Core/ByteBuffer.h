@@ -7,11 +7,11 @@
 
 #pragma once
 
-#include "Assertions.h"
-#include "Error.h"
-#include "Span.h"
-#include "Types.h"
-#include "kmalloc.h"
+#include <Core/Assertions.h>
+#include <Core/Error.h>
+#include <Core/Span.h>
+#include <Core/Types.h>
+#include <Core/kmalloc.h>
 
 namespace Detail {
 

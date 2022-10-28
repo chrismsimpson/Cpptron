@@ -9,7 +9,7 @@
 #include "GenericLexer.h"
 #include "StringBuilder.h"
 
-#ifndef OS
+#ifndef KERNEL
 #    include "String.h"
 #endif
 

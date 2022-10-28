@@ -4,18 +4,18 @@
  * SPDX-License-Identifier: BSD-2-Clause
  */
 
-#include "CharacterTypes.h"
-#include "Format.h"
-#include "GenericLexer.h"
-#include "IntegralMath.h"
-#include "StringBuilder.h"
-#include "kstdio.h"
+#include <Core/CharacterTypes.h>
+#include <Core/Format.h>
+#include <Core/GenericLexer.h>
+#include <Core/IntegralMath.h>
+#include <Core/StringBuilder.h>
+#include <Core/kstdio.h>
 
 #if defined(__os__) && !defined(OS)
 #    include <os.h>
 #endif
 
-#ifdef OS
+#ifdef KERNEL
 
 #else
 #    include <math.h>
@@ -1170,7 +1170,7 @@ ErrorOr<void> Formatter<bool>::format(FormatBuilder& builder, bool value) {
     }
 }
 
-#ifndef OS
+#ifndef KERNEL
 
 ErrorOr<void> Formatter<long double>::format(FormatBuilder& builder, long double value) {
 
@@ -1253,7 +1253,7 @@ ErrorOr<void> Formatter<float>::format(FormatBuilder& builder, float value) {
 
 #endif
 
-#ifndef OS
+#ifndef KERNEL
 
 void vout(FILE* file, StringView fmtstr, TypeErasedFormatParams& params, bool newline) {
 
@@ -1307,7 +1307,7 @@ void vDebugLine(StringView fmtstr, TypeErasedFormatParams& params) {
     debugPutString(string.charactersWithoutNullTermination(), string.length());
 }
 
-#ifdef OS
+#ifdef KERNEL
 
     // TODO: 
     //      vDebugMessageLine

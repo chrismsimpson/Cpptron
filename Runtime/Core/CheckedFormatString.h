@@ -6,11 +6,11 @@
 
 #pragma once
 
-#include "AllOf.h"
-#include "AnyOf.h"
-#include "LinearArray.h"
-#include "std.h"
-#include "StringView.h"
+#include <Core/AllOf.h>
+#include <Core/AnyOf.h>
+#include <Core/LinearArray.h>
+#include <Core/std.h>
+#include <Core/StringView.h>
 
 #ifdef ENABLE_COMPILETIME_FORMAT_CHECK
 // FIXME: Seems like clang doesn't like calling 'consteval' functions inside 'consteval' functions quite the same way as GCC does,
