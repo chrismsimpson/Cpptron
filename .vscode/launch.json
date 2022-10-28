@@ -24,6 +24,75 @@
             "requireExactSource": true
         },
         {
+            "name": "neu clean",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/Sources/bin/Debug/net6.0/Neu.dll",
+            "args": [
+                "clean"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false,
+            "logging": {
+                "moduleLoad": false,
+                "engineLogging": false,
+                "elapsedTiming": false,
+                "exceptions": true,
+                "processExit": true,
+                "programOutput": true,
+                "threadExit": false
+            },
+            "requireExactSource": true
+        },
+        {
+            "name": "neu apps",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/Tests/bin/Debug/net6.0/NeuTests.dll",
+            "args": [
+                "apps"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false,
+            "logging": {
+                "moduleLoad": false,
+                "engineLogging": false,
+                "elapsedTiming": false,
+                "exceptions": true,
+                "processExit": true,
+                "programOutput": true,
+                "threadExit": false
+            },
+            "requireExactSource": true
+        },
+        {
+            "name": "neu scratchpad",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/Tests/bin/Debug/net6.0/NeuTests.dll",
+            "args": [
+                "scratchpad"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false,
+            "logging": {
+                "moduleLoad": false,
+                "engineLogging": false,
+                "elapsedTiming": false,
+                "exceptions": true,
+                "processExit": true,
+                "programOutput": true,
+                "threadExit": false
+            },
+            "requireExactSource": true
+        },
+        {
             "name": "neu tests",
             "type": "coreclr",
             "request": "launch",

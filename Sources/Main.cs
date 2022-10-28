@@ -1,5 +1,5 @@
 ﻿
-namespace DeepScroll;
+namespace Neu;
 
 public static partial class Program {
 
@@ -12,7 +12,7 @@ public static partial class Program {
                 && args[0] == "build"
                 && File.Exists(args[1]): {
 
-                Build(
+                Compiler.Build(
                     path: args[1], 
                     verbose: !args.Contains("--silent"));
 
@@ -22,6 +22,8 @@ public static partial class Program {
             case var _ when
                 args.Length > 0
                 && args[0] == "clean": {
+
+                Compiler.Clean();
 
                 WriteLine(CLEAN_MESSAGE);
 
@@ -41,14 +43,14 @@ public static partial class Program {
                 args.Length > 0
                 && args[0] == "build": {
 
-                Error.WriteLine(BUILD_USAGE);
+                Console.Error.WriteLine(BUILD_USAGE);
 
                 return 1;
             }
 
             default: {
 
-                Error.WriteLine(USAGE);
+                Console.Error.WriteLine(USAGE);
 
                 return 1;
             }
@@ -85,40 +87,6 @@ Arguments:
     public static readonly String CLEAN_MESSAGE = 
 @"Clean successful
 ";
-
-    public static void Build(
-        String path,
-        bool verbose) {
-
-        var ext = System.IO.Path.GetExtension(path);
-
-        var pathWithoutExt = path.Substring(0, path.Length - ext.Length);
-
-        var o = (String data) => {
-
-            WriteLine(data);
-        };
-
-        var e = (String err) => {
-            
-            var og = Console.ForegroundColor;
-
-            Console.ForegroundColor = 
-                err.Contains("error")
-                    ? ConsoleColor.Red
-                    : ConsoleColor.Yellow;
-
-            WriteLine(err);
-
-            Console.ForegroundColor = og;
-        };
-
-        var (stdOutput, stdError, exitSuccess) = Process.Run(
-            name: "clang++",
-            arguments: $"-std=c++20 -I. -IRuntime -Wno-user-defined-literals {path} -o {pathWithoutExt}.out",
-            dataReceived: verbose ? o : null,
-            errorReceived: verbose ? e : null);
-    }
 
     // public static void Foo() {
 

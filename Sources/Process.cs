@@ -1,13 +1,13 @@
 
-namespace DeepScroll;
+namespace Neu;
 
 public static partial class Process {
 
     public static (String StandardOutput, String StandardError, bool ExitedSuccessfully) Run(
         String name,
-        String? arguments,
-        Action<String>? dataReceived,
-        Action<String>? errorReceived) {
+        String? arguments = null,
+        Action<String>? dataReceived = null,
+        Action<String>? errorReceived = null) {
 
         var startInfo = new ProcessStartInfo();
 
